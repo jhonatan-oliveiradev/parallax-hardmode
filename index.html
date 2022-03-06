@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parallax Hard Mode | Vanilla JavaScript</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo">Moon<span>light</span></a>
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Projetos</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </header>
+    <section>
+      <img src="images/stars.png" id="stars" />
+      <img src="images/moon.png" id="moon" />
+      <img src="images/mountains_behind.png" id="mountains_behind" />
+      <h2 id="text">Moon Light</h2>
+      <a href="#" id="btn">Explorar</a>
+      <img src="images/mountains_front.png" id="mountains_front" />
+    </section>
+    <div class="sec">
+      <h2>Efeito Parallax "Hard Mode"</h2>
+      <p>
+        Rolagem parallax é uma técnica de web design onde o background se
+        movimenta em um ritmo mais lento que o primeiro plano. Isso resulta em
+        um efeito 3D à medida que os visitantes rolam pela página, adicionando
+        uma sensação de profundidade e criando uma experiência mais imersiva. O
+        efeito parallax é baseado em uma ilusão de ótica causada pelo fato de
+        que o olho humano considera que os objetos que estão perto são maiores
+        do que os que estão mais afastados. O resultado é que temos a percepção
+        de que os objetos mais distantes movimentam-se mais lentamente do que os
+        que estão próximos.<br /><br />Esta percepção de que o movimento do
+        plano de fundo é mais lento do que o movimento do primeiro plano já vem
+        sendo usada há bastante tempo em diferentes meios, promovendo um efeito
+        realista. O parallax começou na animação tradicional e até já foi usado
+        no filme Branca de Neve e os Sete Anões da Disney, e em videogames como
+        Super Mário. Com os avanços em CSS e HTML, os efeitos parallax evoluíram
+        posteriormente, para o mundo do web design como o conhecemos hoje.<br /><br />O
+        efeito parallax de rolagem surgiu como uma das principais tendências do
+        web design em 2011. Muitas modas já apareceram e desapareceram na
+        Internet, mas a rolagem parallax parece ter conseguido estabelecer-se
+        como uma peça de design que veio para ficar.<br /><br />Tome como
+        exemplo o jogo do Super Mario, onde há vários objetos e imagens se
+        movendo ao fundo. Você pode visualizar árvores, nuvens, o sol e muito
+        outros detalhes, e por incrível que pareça eles estão no mesmo plano,
+        porém nosso cérebro interpreta como se fossem camadas diferentes.
+        Entendeu? Se ainda não, veja um exemplo diferente. Jogos em que o
+        cenário se movimenta e os personagens (ou objetos principais) ficam
+        estáticos — ou melhor dizendo, no centro da tela — são os que mais
+        exibem este efeito. TopGear mostra claramente isso, pois o carro ficava
+        quase parado e o cenário dava a impressão de movimento por trazer vários
+        objetos para perto da tela em velocidades diferentes do carro. Veja
+        abaixo um vídeo do Mario, onde o Parallax é visível em quase toda
+        cena.<br /><br />
+        Agora que você já sabe o que é Parallax, talvez seja interessante
+        conferir alguns jogos do Mario ou de outros estilos para relembrar dos
+        bons tempos e de quebra poder conferir o efeito parallax na íntegra.
+      </p>
+    </div>
+    <!-- sec -->
+    <script>
+      let stars = document.getElementById("stars");
+      let moon = document.getElementById("moon");
+      let mountains_behind = document.getElementById("mountains_behind");
+      let text = document.getElementById("text");
+      let btn = document.getElementById("btn");
+      let mountains_front = document.getElementById("mountains_front");
+      let header = document.querySelector("header");
+
+      window.addEventListener("scroll", function () {
+        let value = window.scrollY;
+        stars.style.left = value * 0.25 + "px";
+        moon.style.top = value * 1.05 + "px";
+        mountains_behind.style.top = value * 0.5 + "px";
+        mountains_front.style.top = value * 0 + "px";
+        text.style.marginRight = value * 4 + "px";
+        text.style.marginTop = value * 1.5 + "px";
+        btn.style.marginTop = value * 1.5 + "px";
+        header.style.top = value * 0.5 + "px";
+      });
+    </script>
+    <!-- Path: index.html -->
+  </body>
+</html>
